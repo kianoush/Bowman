@@ -5,6 +5,8 @@ pygame.init()
 Display_height = 1000
 Display_wight = 800
 
+# Load bowman images 
+
 Display = pygame.display.set_mode((Display_height,Display_wight))
 pygame.display.set_caption('Bowman')
 
@@ -21,7 +23,7 @@ bg_Img = pygame.image.load('1.png')
 standing_Img = pygame.image.load('6_HURT_000.png')
 dart1_Img = pygame.image.load('dart.png')
 
-
+# Make a class for player
 clock = pygame.time.Clock()
 
 class player(object):
@@ -69,7 +71,7 @@ class player(object):
 
         pygame.display.update()
 
-
+# Make a class for dart
 
 class dart(object):
     def __init__(self,x,y):
@@ -87,12 +89,14 @@ class dart(object):
             self.dartCount += 1
         pygame.display.update()
 
-
+# Load Images for monster
 monster_walk_Img=[pygame.image.load('RUN_0000.png'),pygame.image.load('RUN_0001.png'),pygame.image.load('RUN_0002.png'),\
     pygame.image.load('RUN_0003.png'),pygame.image.load('RUN_0004.png'),pygame.image.load('RUN_0005.png'),pygame.image.load('RUN_0006.png')]
 
 monster_die_Img=[pygame.image.load('DIE_0001.png'),pygame.image.load('DIE_0002.png')\
     ,pygame.image.load('DIE_0003.png'),pygame.image.load('DIE_0004.png'),pygame.image.load('DIE_0005.png'),pygame.image.load('DIE_0006.png')]
+
+#Make a class for monster
 
 class monster(object):
     def __init__(self,x,y):
@@ -122,13 +126,14 @@ class monster(object):
             pygame.display.update()
         self.hitbox = (self.x+25 , self.y-5 , 140, 120)
         #pygame.draw.rect(Display, (255,0,0), self.hitbox,2)
-
+#Draw all classes
 def Bowman_walk_Draw():
     Display.blit(bg_Img,(0,0))
     dart_Man.attack_dart(Display)
     Bowman.Bowman_walk(Display)
     pygame.display.update()
 
+# Main loop   
 Bowman = player(100,505,60,60)
 dart_Man = dart(Bowman.x,Bowman.y+20)
 monster_01 = monster(700,482)
