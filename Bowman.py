@@ -171,7 +171,7 @@ while run:
                 monster_01.dead = True
         pygame.display.update()
     else:
-        #standing 
+        #player standing 
         Bowman.attack = False
         Bowman.right = False
         Bowman.left = False
